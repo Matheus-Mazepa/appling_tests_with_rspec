@@ -1,10 +1,6 @@
-<%= csrf_meta_tag %>
-
-<% @weapons.each do |weapon| %>
-    <p><%= weapon.name %></p>
-    <p><%= weapon.current_power %></p>
-    <p><%= weapon.title %></p>
-    <%= link_to "Visualizar", weapon_path(weapon) %>
-    <br />
-    <%= link_to 'Deletar', weapon, method: :delete %>
-<% end %>
+- @weapons.each do |weapon|
+    %p= weapon.name
+    %p= weapon.current_power
+    %p= weapon.title
+    = link_to "Visualizar", weapon_path(weapon) 
+    = link_to "Deletar", weapon_path(weapon), method: :delete

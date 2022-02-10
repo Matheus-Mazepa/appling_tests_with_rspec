@@ -35,8 +35,6 @@ rebuild: down build
 # Install the environment
 install: build up
 
-# Execute inside container
-web: docker-compose exec web
 #-----------------------------------------------------------
 # Clearing
 #-----------------------------------------------------------

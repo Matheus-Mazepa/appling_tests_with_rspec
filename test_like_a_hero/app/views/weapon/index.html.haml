@@ -1,6 +1,25 @@
-- @weapons.each do |weapon|
-    %p= weapon.name
-    %p= weapon.current_power
-    %p= weapon.title
-    = link_to "Visualizar", weapon_path(weapon) 
-    = link_to "Deletar", weapon_path(weapon), method: :delete
+%nav{"aria-label" => "breadcrumb", :style => "--bs-breadcrumb-divider: '>';"}
+  %ol.breadcrumb
+    %li.breadcrumb-item
+      %a{:href => "/"} Home
+    %li.breadcrumb-item.active{"aria-current" => "page"} Armamentos
+
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Nome
+      %th{:scope => "col"} Poder atual
+      %th{:scope => "col"} Título
+  %tbody
+    - @weapons.each do |weapon|
+      %tr
+        %td= weapon.id 
+        %td= weapon.name
+        %td= weapon.current_power
+        %td= weapon.title
+        %td
+          = link_to "Visualizar", weapon_path(weapon) 
+          = link_to "Editar", edit_weapon_path(weapon) 
+          = link_to "Deletar", weapon_path(weapon), method: :delete
+        

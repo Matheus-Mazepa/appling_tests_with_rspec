@@ -1,0 +1,25 @@
+%h1 Listing castles
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Players
+      %th Is open
+      %th
+      %th
+      %th
+
+  %tbody
+    - @castles.each do |castle|
+      %tr
+        %td= castle.name
+        %td= castle.players
+        %td= castle.is_open
+        %td= link_to 'Show', castle
+        %td= link_to 'Edit', edit_castle_path(castle)
+        %td= link_to 'Destroy', castle, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Castle', new_castle_path

@@ -1,0 +1,19 @@
+= form_for @castle do |f|
+  - if @castle.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@castle.errors.count, "error")} prohibited this castle from being saved:"
+      %ul
+        - @castle.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :players
+    = f.number_field :players
+  .field
+    = f.label :is_open
+    = f.check_box :is_open
+  .actions
+    = f.submit 'Save'

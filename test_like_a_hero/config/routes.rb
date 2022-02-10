@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :castles
   resources :users, only: [:index, :create]
 
   resources :weapon
